@@ -19,7 +19,7 @@ module.exports = context => function SchemaParser(name, model) {
   // When creating the schema in Mongoose, the default collection name matches
   // that of the model (as opposed to the default behavior of pluralizing).
   // This can be overridden in the model settings on the `options` key.
-  let schema = new mongoose.Schema(settings.schema, settings.options);
+  let schema = new mongoose.Schema(model.schema, model.options);
 
   // Support for declaring methods, statics, etc. using the same Object-based
   // format that we configure the Schema with.
