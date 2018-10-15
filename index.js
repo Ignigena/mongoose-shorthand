@@ -3,10 +3,14 @@ const mongoose = require('mongoose');
 const adapters = [
   'methods',
   'middleware',
+  'plugins',
   'query',
   'statics',
   'virtuals',
-].map(adapter => require(`./adapters/${adapter}`));
+].reduce((result, adapter) => {
+  result[adapter] = require(`./adapters/${adapter}`)
+  return result
+}, {});
 
 module.exports = context => function SchemaParser(name, model) {
   // Allow models to export a function which will be invoked with the `context`
@@ -23,10 +27,10 @@ module.exports = context => function SchemaParser(name, model) {
 
   // Support for declaring methods, statics, etc. using the same Object-based
   // format that we configure the Schema with.
-  adapters.forEach(adapter => {
+  Object.keys(adapters).forEach(adapter => {
     if (!model[adapter]) return;
     Object.keys(model[adapter]).map(key => {
-      adapter(schema)(key, model[adapter][key]);
+      adapters[adapter](schema)(model[adapter][key], key);
     });
   });
 
