@@ -1,7 +1,7 @@
-module.exports = schema => function(plugin) {
-  let use, config;
+module.exports = schema => function (plugin) {
+  let use, config
   if (Array.isArray(plugin)) {
-    [use, config] = plugin;
+    [use, config] = plugin
   } else {
     use = plugin
   }
@@ -11,15 +11,15 @@ module.exports = schema => function(plugin) {
   // we fall back to the string as the module name.
   if (typeof use === 'string') {
     try {
-      use = require(`mongoose-${use}`);
+      use = require(`mongoose-${use}`)
     } catch (err) {
       try {
-        use = require(use);
+        use = require(use)
       } catch (err) {
-        throw new Error(`Schema plugin "${use}" found, did you forget to install?`);
+        throw new Error(`Schema plugin "${use}" found, did you forget to install?`)
       }
     }
   }
 
-  schema.plugin(use, config);
-};
+  schema.plugin(use, config)
+}
