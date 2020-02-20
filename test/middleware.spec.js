@@ -16,7 +16,6 @@ const User = model('User', {
 })
 
 describe('virtuals', () => {
-  let connection
   let record
   let fixture = {
     email: 'test@test.com',
@@ -24,11 +23,14 @@ describe('virtuals', () => {
   }
 
   beforeAll(async () => {
-    connection = mongoose.connect(process.env.DB_MONGO || 'mongodb://127.0.0.1:27017/test', { useNewUrlParser: true })
+    mongoose.connect(process.env.DB_MONGO || 'mongodb://127.0.0.1:27017/test', {
+      useNewUrlParser: true,
+      useUnifiedTopology: true
+    })
     record = await User.create(fixture)
   })
 
-  afterAll(done => connection.close(done))
+  afterAll(() => mongoose.connection.close())
 
   it('implements all middleware specified in the model', async () => {
     expect(record.password).toEqual('drowssap')

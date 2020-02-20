@@ -4,8 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "jest --forceExit",
-    "posttest": "eslint ."
+    "test": "jest"
   },
   "author": "Albert Martin <albert@imor.tl>",
   "license": "MIT",
