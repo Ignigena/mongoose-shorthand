@@ -6,8 +6,8 @@ module.exports = schema => function (virtual, virtualName) {
   // when using `toJSON` and `toObject`. This behavior can be turned off by
   // simply setting the `virtuals` property to `false` in your model.
   _.each(['toJSON', 'toObject'], path => {
-    let location = `options.${path}.virtuals`
-    let userDisabled = (dot.get(schema, location) === false)
+    const location = `options.${path}.virtuals`
+    const userDisabled = (dot.get(schema, location) === false)
     dot.set(schema, location, !userDisabled)
   })
 

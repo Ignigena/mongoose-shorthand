@@ -17,7 +17,7 @@ const User = model('User', {
 
 describe('virtuals', () => {
   let record
-  let fixture = {
+  const fixture = {
     email: 'test@test.com',
     password: 'password'
   }
