@@ -8,6 +8,9 @@
   },
   "author": "Albert Martin <albert@imor.tl>",
   "license": "MIT",
+  "engines": {
+		"node": ">=12"
+	},
   "peerDependencies": {
     "mongoose": ">=5.7.5"
   },
