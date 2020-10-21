@@ -1,15 +1,18 @@
 {
   "name": "mongoose-shorthand",
   "version": "1.1.0",
-  "description": "",
-  "main": "index.js",
+  "description": "Mongoose models and schema with less repetitive code",
+  "license": "MIT",
+  "repository": "Ignigena/mongoose-shorthand",
+  "author": "Albert Martin <albert@imor.tl>",
+  "engines": {
+    "node": ">=12"
+  },
   "scripts": {
     "test": "jest"
   },
-  "author": "Albert Martin <albert@imor.tl>",
-  "license": "MIT",
-  "engines": {
-    "node": ">=12"
+  "dependencies": {
+    "dot-prop": "^6.0.0"
   },
   "peerDependencies": {
     "mongoose": ">=5.7.5"
@@ -24,8 +27,5 @@
     "eslint-plugin-standard": "^4.0.0",
     "jest": "^26.0.1",
     "mongoose": "^5.10.9"
-  },
-  "dependencies": {
-    "dot-prop": "^6.0.0"
   }
 }
