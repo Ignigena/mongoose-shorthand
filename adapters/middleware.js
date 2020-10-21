@@ -1,5 +1,3 @@
-const _ = require('lodash')
-
 module.exports = schema => function (hook, type) {
   const hookDetails = new RegExp(/(pre|post)(.*)/g).exec(type)
   const when = hookDetails[1]
@@ -9,7 +7,7 @@ module.exports = schema => function (hook, type) {
     hook = [hook]
   }
 
-  _.each(hook, function (middleware) {
+  hook.forEach(middleware => {
     schema[when](what, middleware)
   })
 }

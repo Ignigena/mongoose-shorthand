@@ -1,11 +1,10 @@
 const dot = require('dot-prop')
-const _ = require('lodash')
 
 module.exports = schema => function (virtual, virtualName) {
   // If a virtual property is defined on the model, automatically expose it in
   // when using `toJSON` and `toObject`. This behavior can be turned off by
   // simply setting the `virtuals` property to `false` in your model.
-  _.each(['toJSON', 'toObject'], path => {
+  ['toJSON', 'toObject'].forEach(path => {
     const location = `options.${path}.virtuals`
     const userDisabled = (dot.get(schema, location) === false)
     dot.set(schema, location, !userDisabled)
@@ -22,7 +21,8 @@ module.exports = schema => function (virtual, virtualName) {
   if (typeof virtual === 'function') {
     virtual = { get: virtual }
   }
-  _.each(virtual, function (func, type) {
+
+  Object.entries(virtual).forEach(([type, func]) => {
     schema.virtual(virtualName)[type](func)
   })
 }
