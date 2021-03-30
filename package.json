@@ -26,6 +26,6 @@
     "eslint-plugin-promise": "^4.1.1",
     "eslint-plugin-standard": "^4.0.0",
     "jest": "^26.6.0",
-    "mongoose": "^5.10.9"
+    "mongoose": "^5.12.2"
   }
 }
