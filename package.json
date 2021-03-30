@@ -12,7 +12,7 @@
     "test": "jest"
   },
   "dependencies": {
-    "dot-prop": "^6.0.0"
+    "dot-prop": "^6.0.1"
   },
   "peerDependencies": {
     "mongoose": ">=5.7.5"
