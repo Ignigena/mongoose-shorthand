@@ -1,6 +1,6 @@
 {
   "name": "mongoose-shorthand",
-  "version": "2.0.0",
+  "version": "2.0.1",
   "description": "Mongoose models and schema with less repetitive code",
   "license": "MIT",
   "repository": "Ignigena/mongoose-shorthand",
