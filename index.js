@@ -30,7 +30,7 @@ module.exports = context => {
     // format that we configure the Schema with.
     Object.keys(adapters).forEach(adapter => {
       if (!model[adapter]) return
-      Object.keys(model[adapter]).map(key => {
+      Object.keys(model[adapter]).forEach(key => {
         adapters[adapter](schema)(model[adapter][key], key)
       })
     })
